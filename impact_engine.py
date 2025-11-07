@@ -1,7 +1,6 @@
-from database import save_progress
 from transformers import pipeline
-from sdg_utils import compute_originality, get_sdg_match
-from prompts import IMPACT_REPORT, REFLECTION_SUMMARY, MINI_DECK, REFLECTION_PROMPTS
+from sdg_utils import compute_originality
+from prompts import IMPACT_REPORT, REFLECTION_SUMMARY, MINI_DECK
 import random
 
 summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
