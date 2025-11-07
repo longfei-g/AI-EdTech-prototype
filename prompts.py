@@ -1,5 +1,4 @@
 # prompts.py
-# Categories from examples (Environmental, Safety, Community, Infrastructure, etc.)
 CATEGORIES = {
     "Environmental": ["trash", "litter", "pollution", "green", "climate"],
     "Safety": ["accident", "security", "health", "damage"],
@@ -8,55 +7,38 @@ CATEGORIES = {
     "Other": []
 }
 
-# Critical Thinking prompts (inquiry-driven from examples)
 CRITICAL_THINKING_PROMPTS = [
-    "What do you think causes this issue? Is it neglect, materials, or habits?",
-    "How can we confirm this matters to others? Survey 3-5 people.",
-    "Before fixing, what strategies exist? Replace? Repair? Redesign?",
-    "If you had zero funds, how would you make an impact?",
-    "What surprised you during implementation?"
+    "What causes this? Neglect, materials, habits?",
+    "How to confirm it matters? Survey 3-5 people.",
+    "Strategies? Replace, repair, redesign?",
+    "Zero funds impact? Brainstorm reuse, partnerships.",
+    "Surprises during implementation?"
 ]
 
-# Quick Build prompts (action-oriented)
 QUICK_BUILD_PROMPTS = [
-    "Outline steps for a hands-on project: Research, Gather Support, Execute.",
-    "Create an adaptive budget: Materials, partnerships, donations.",
-    "Suggest quick tools for prototyping: Reuse items, simple plans.",
-    "How to document execution: Photos, videos, challenges log."
+    "Milestone plan: Research, support, execute, measure.",
+    "Adaptive budget: Materials, donations.",
+    "Tools for prototype: No-code, reuse items.",
+    "Document: Photos, videos, challenge log."
 ]
 
-# Personalities unchanged
+PERSONALITIES = {
+    "Encouraging Coach": {"style": "friendly", "prefix": "Great! ", "suffix": " Keep going!"},
+    "Strict Analyst": {"style": "analytical", "prefix": "Evaluate: ", "suffix": " Be precise."}
+}
 
-# Reflection prompts
 REFLECTION_PROMPTS = [
-    "Why did you choose this solution?",
-    "If you were city planners, what would you do differently?"
+    "Why this solution?",
+    "Differently next time?"
 ]
 
-# Report templates (from examples)
-MARKET_DISCOVERY_TEMPLATE = """
-Market Discovery Report
-- Survey Responses: {responses}
-- Sentiment: {sentiment}% positive
-"""
-
-MINI_DECK_TEMPLATE = """
-Mini Business Deck
-- Problem: {problem}
-- Plan: {plan}
-- Impact: {impact}
-"""
-
-IMPACT_SUMMARY_TEMPLATE = """
-Impact Summary
-- Metrics: {metrics}
-- Score: {score}
-- Innovation: {innovation}
-"""
-
-REFLECTION_SUMMARY_TEMPLATE = """
-Reflection Summary
-- Learnings: {learnings}
-- Badge: {badge}
-- XP: {xp}
-"""
+# Artifact Templates
+PROBLEM_ANALYSIS_MAP = "Problem Analysis Map\n- Causes: {causes}\n- Categories: {categories}"
+COMMUNITY_VALIDATION = "Validation Summary\n- Quotes: {quotes}\n- Sentiment: {sentiment}%"
+DECISION_LOG = "Decision Log\n- Options: {options}\n- Chosen: {chosen} (Why: {why})"
+ADAPTIVE_BUDGET = "Budget Plan\n- Item: {item} (Rationale: {rationale})"
+CHALLENGE_LOG = "Challenge vs Solution Log\n- Challenge: {challenge}\n- Solution: {solution}"
+IMPACT_REPORT = "Impact Report\n- Metrics: {metrics}\n- Narratives: {narratives}"
+REFLECTION_SUMMARY = "Reflection Summary\n- Learnings: {learnings}\n- Badge: {badge}\n- XP: {xp}"
+MINI_DECK = "Mini Deck\n- Problem: {problem}\n- Plan: {plan}\n- Impact: {impact}"
+MARKET_DISCOVERY = "Market Discovery Report\n- Responses: {responses}\n- Sentiment: {sentiment}%"

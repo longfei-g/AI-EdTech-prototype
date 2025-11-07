@@ -1,3 +1,4 @@
+# database.py
 import sqlite3
 
 DB_PATH = "progress.db"
@@ -8,8 +9,7 @@ def init_db():
     c.execute('''CREATE TABLE IF NOT EXISTS progress
                  (user_id TEXT, mission TEXT, category TEXT, sdg TEXT,
                   challenges INT, ideas INT, originality FLOAT,
-                  reflection TEXT, summary TEXT, timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
-                  reports TEXT)''')
+                  reflection TEXT, summary TEXT, reports TEXT, timestamp DATETIME DEFAULT CURRENT_TIMESTAMP)''')
     conn.commit()
     conn.close()
 

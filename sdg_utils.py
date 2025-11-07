@@ -1,3 +1,4 @@
+# sdg_utils.py
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
@@ -8,8 +9,8 @@ DATASET_PATH = "osdg-community-data-v2024-01-01.csv"
 SDG_MAP = {
     "Environmental": "SDG 13/14/15 (Climate/Life Below Water/Life on Land)",
     "Safety": "SDG 3/11 (Health/Sustainable Cities)",
-    "Community": "SDG 10/16 (Reduced Inequalities/Peace)",
-    "Infrastructure": "SDG 9/11 (Industry/Innovation, Sustainable Cities)",
+    "Community": "SDG 10/16 (Inequalities/Peace)",
+    "Infrastructure": "SDG 9/11 (Industry/Cities)",
     "Other": "Other SDG"
 }
 
@@ -18,6 +19,7 @@ def load_sdg_data():
         df = pd.read_csv(DATASET_PATH, sep='\t')
         return df[df['agreement'] > 0.8]
     except FileNotFoundError:
+        print("Download OSDG-CD CSV.")
         return pd.DataFrame()
 
 def rule_based_category(text: str) -> str:
@@ -34,8 +36,8 @@ def compute_originality(solution_text: str, category: str) -> float:
     df = load_sdg_data()
     if df.empty:
         return 0.8
-    sdg = get_sdg_match(category).split(" (")[0]
-    samples = df[df['sdg'].str.contains(sdg, na=False)]['text'].tolist()[:10]
+    sdg = get_sdg_match(category).split(" ")[0]
+    samples = df[df['sdg'].astype(str).str.contains(sdg)]['text'].tolist()[:5]
     if not samples:
         return 0.8
     vectorizer = TfidfVectorizer()
